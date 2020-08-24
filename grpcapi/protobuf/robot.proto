@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package grpcapi;
+
+option go_package = ".;grpcapi";
+
+service Robot {
+    rpc Fetch (FetchRequest) returns (FetchResponse);
+    rpc Send (SendRequest) returns (SendResponse);
+}
+
+service Admin {
+    rpc Run (RunRequest) returns (RunResponse);
+}
+
+message FetchRequest { }
+
+message FetchResponse {
+    string command = 1;
+}
+
+message SendRequest {
+    string output = 1;
+}
+
+message SendResponse { }
+
+message RunRequest {
+    string command = 1;
+}
+
+message RunResponse {
+    string output = 1;
+}
